@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export const SparklesIcon = ({ className }: { className?: string }) => (
@@ -42,5 +41,25 @@ export const MapPinIcon = ({ className }: { className?: string }) => (
 export const StarIcon = ({ className }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
         <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.006Z" clipRule="evenodd" />
+    </svg>
+);
+
+export const ChatBubbleLeftRightIcon = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path fillRule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+    </svg>
+);
+
+export const CameraIcon = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M12 9a3.75 3.75 0 1 0 0 7.5A3.75 3.75 0 0 0 12 9Z" />
+        <path fillRule="evenodd" d="M9.344 3.071a49.52 49.52 0 0 1 5.312 0c.967.052 1.78.72 1.934 1.69.192 1.252.344 2.52.468 3.805.121 1.26.277 2.545.49 3.848.203 1.238.416 2.503.68 3.785a.75.75 0 0 1-.68.919c-.26.042-.52.075-.78.108a.75.75 0 0 1-.722-.665c-.198-1.22-.403-2.45-.64-3.693a48.902 48.902 0 0 0-.946-4.21c-.243-1.08-.475-2.162-.695-3.252a.75.75 0 0 1 .468-1.015.75.75 0 0 0 .34-.482Z" clipRule="evenodd" />
+        <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V12.75a3 3 0 0 0-3-3v-3A5.25 5.25 0 0 0 12 1.5ZM10.5 6.75a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clipRule="evenodd" />
+    </svg>
+);
+
+export const WrenchScrewdriverIcon = ({ className }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path fillRule="evenodd" d="M12 6.75a5.25 5.25 0 0 1 5.25 5.25v.75H18a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-.75.75h-.75v.75a5.25 5.25 0 1 1-10.5 0v-.75H6a.75.75 0 0 1-.75-.75v-3a.75.75 0 0 1 .75-.75h.75v-.75A5.25 5.25 0 0 1 12 6.75ZM9.75 12.75a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Z" clipRule="evenodd" />
     </svg>
 );

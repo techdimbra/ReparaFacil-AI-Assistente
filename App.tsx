@@ -1,12 +1,20 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage as ChatMessageType } from './types';
 import { getReparaFacilResponse } from './services/geminiService';
 import { useLocation } from './hooks/useLocation';
 import { ChatMessage } from './components/ChatMessage';
-import { PaperclipIcon, SendIcon, SparklesIcon, XCircleIcon } from './components/icons';
+import { 
+    PaperclipIcon, 
+    SendIcon, 
+    SparklesIcon, 
+    XCircleIcon,
+    ChatBubbleLeftRightIcon,
+    CameraIcon,
+    WrenchScrewdriverIcon
+} from './components/icons';
 
 const App: React.FC = () => {
+  const [chatStarted, setChatStarted] = useState(false);
   const [messages, setMessages] = useState<ChatMessageType[]>([
     {
       id: 'initial',
@@ -18,15 +26,16 @@ const App: React.FC = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
   const { location, error: locationError } = useLocation();
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+    if(chatStarted) {
+        chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, chatStarted]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -109,6 +118,43 @@ const App: React.FC = () => {
     }
   };
   
+  if (!chatStarted) {
+    return (
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white p-6 font-sans">
+            <div className="text-center max-w-3xl mx-auto">
+                <SparklesIcon className="w-16 h-16 text-blue-400 mx-auto mb-4" />
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-4">Bem-vindo ao ReparaFácil AI</h1>
+                <p className="text-lg md:text-xl text-gray-400 mb-12">Seu assistente especialista para diagnosticar e consertar qualquer coisa. Rápido, seguro e inteligente.</p>
+
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                        <ChatBubbleLeftRightIcon className="w-10 h-10 text-blue-400 mx-auto mb-3"/>
+                        <h2 className="text-xl font-semibold mb-2">1. Descreva</h2>
+                        <p className="text-gray-400">Conte-me o problema com suas palavras. Quanto mais detalhes, melhor!</p>
+                    </div>
+                    <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                        <CameraIcon className="w-10 h-10 text-blue-400 mx-auto mb-3"/>
+                        <h2 className="text-xl font-semibold mb-2">2. Fotografe</h2>
+                        <p className="text-gray-400">Envie uma foto para um diagnóstico visual e muito mais preciso.</p>
+                    </div>
+                     <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                        <WrenchScrewdriverIcon className="w-10 h-10 text-blue-400 mx-auto mb-3"/>
+                        <h2 className="text-xl font-semibold mb-2">3. Resolva</h2>
+                        <p className="text-gray-400">Receba guias DIY ou encontre os melhores profissionais locais.</p>
+                    </div>
+                </div>
+
+                <button
+                    onClick={() => setChatStarted(true)}
+                    className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-500 transition-all text-lg shadow-lg shadow-blue-500/20"
+                >
+                    Começar o Diagnóstico
+                </button>
+            </div>
+        </div>
+    );
+  }
+
   return (
     <div className="flex flex-col h-screen bg-gray-900 text-white font-sans">
         <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700 p-4 flex items-center justify-center sticky top-0 z-10">
