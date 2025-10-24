@@ -1,0 +1,7 @@
+{
+  "name": "ReparaFácil AI Assistant",
+  "description": "An AI-powered assistant to help you diagnose and safely repair any item. Get step-by-step guides for simple fixes or find qualified local professionals for complex jobs.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
